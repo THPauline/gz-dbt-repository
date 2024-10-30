@@ -37,7 +37,7 @@ sources:
             description: price of each product
       - name: ship
         identifier: raw_gz_ship
-        description: pshipping costs of Greenweez
+        description: shipping costs of Greenweez
         columns:
           - name: orders_id
             description: id of orders
@@ -49,3 +49,94 @@ sources:
             description: cost of login
           - name: ship_cost
             description: cost of shipping
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: adwords
+        columns:
+          - name: date_date
+            description: date of the date
+          - name: paid_source
+            description: paid_source
+          - name: campaign_key
+            description: campaign_key
+          - name: camPGN_name
+            description: camPGN_name
+          - name: ads_cost
+            description: ads_cost
+          - name: impression
+            description: impression
+          - name: click
+            description: click
+        tests:
+          - unique:
+              column_name: "(date_date || '-' || campaign_key)"
+      - name: bing
+        identifier: raw_gz_bing
+        description: bing
+        columns:
+          - name: date_date
+            description: date of the date
+          - name: paid_source
+            description: paid_source
+          - name: campaign_key
+            description: campaign_key
+          - name: camPGN_name
+            description: camPGN_name
+          - name: ads_cost
+            description: ads_cost
+          - name: impression
+            description: impression
+          - name: click
+            description: click
+        tests:
+        - unique:
+            column_name: "(date_date || '-' || campaign_key)"
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: criteo
+        columns:
+          - name: date_date
+            description: date of the date
+          - name: paid_source
+            description: paid_source
+          - name: campaign_key
+            description: campaign_key
+          - name: camPGN_name
+            description: camPGN_name
+          - name: ads_cost
+            description: ads_cost
+          - name: impression
+            description: impression
+          - name: click
+            description: click
+        tests:
+        - unique:
+            column_name: "(date_date || '-' || campaign_key)"
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: facebook
+        columns:
+          - name: date_date
+            description: date of the date
+          - name: paid_source
+            description: paid_source
+          - name: campaign_key
+            description: campaign_key
+          - name: camPGN_name
+            description: camPGN_name
+          - name: ads_cost
+            description: ads_cost
+          - name: impression
+            description: impression
+          - name: click
+            description: click
+models:
+  - name: int_campaigns
+    description: data from all campaigns
+    columns:
+      - name: paid_source
+        tests:
+          - not_null
+      - name: campaign_name
+        tests:
+          - not_null
