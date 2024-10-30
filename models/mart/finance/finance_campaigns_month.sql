@@ -1,6 +1,6 @@
 SELECT
-    date_date
-    ,(operational_margin - ads_cost) AS ads_margin
+    EXTRACT(month from date_date) AS datemonth
+    ,ads_margin
     ,average_basket
     ,operational_margin
     ,ads_cost
@@ -13,6 +13,5 @@ SELECT
     ,shipping_fee
     ,logcost
     ,ship_cost
-from {{ ref('int_campaigns_day') }
-join {{ ref('finance_days') }}
-order by date_date DESC
+from {{ ref('finance_campaigns_day') }}
+group by date_date
