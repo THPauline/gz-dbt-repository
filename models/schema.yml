@@ -151,3 +151,8 @@ models:
         description: average basket cost for each day
         tests:
           - not_null
+  - name: stg_stock
+    columns:
+      - name: model
+        tests:
+          - dbt_utils.not_empty_string
