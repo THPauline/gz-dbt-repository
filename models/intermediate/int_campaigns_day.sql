@@ -1,8 +1,8 @@
 SELECT
     date_date
     ,ROUND(SUM(ads_cost),2) AS ads_cost
-    ,ROUND(SUM(impression),2) AS impression
-    ,ROUND(SUM(click),2) AS click
+    ,ROUND(SUM(impression),2) AS ads_impression
+    ,ROUND(SUM(click),2) AS ads_clicks
 FROM {{ref('int_campaigns')}}
 group by date_date
 order by date_date DESC

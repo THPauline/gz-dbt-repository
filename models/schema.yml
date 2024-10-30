@@ -130,6 +130,13 @@ sources:
             description: impression
           - name: click
             description: click
+models:
+  - name: int_campaigns
+    description: data from all campaigns
+    columns:
+      - name: paid_source
         tests:
-        - unique:
-            column_name: "(date_date || '-' || campaign_key)"
+          - not_null
+      - name: campaign_name
+        tests:
+          - not_null

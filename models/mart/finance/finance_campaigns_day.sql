@@ -4,8 +4,8 @@ SELECT
     ,average_basket
     ,operational_margin
     ,ads_cost
-    ,ads_impression
-    ,ads_clicks
+    ,impression
+    ,clicks
     ,quantity
     ,revenue
     ,purchase_cost
@@ -13,6 +13,7 @@ SELECT
     ,shipping_fee
     ,logcost
     ,ship_cost
-from {{ ref('int_campaigns_day') }
+from {{ ref('int_campaigns_day') }}
 join {{ ref('finance_days') }}
+using(date_date)
 order by date_date DESC
